@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pizza;
 use App\PizzaType;
+use App\PizzaBase;
 
 use Illuminate\Http\Request;
 
@@ -16,35 +17,32 @@ class PizzaController extends Controller
     {
         $pizzas = pizza::all();
         return view('pizzas', ['pizzas' => $pizzas]);
-        //get data from the database
-
-        //return view('pizzas', [
-         //   'pizzas' => $pizzas
-        //]);
     }
 
 // /pizzas/form 2nd action
-    public function form()
+    public function form(\App\Pizza $pizza)
     {
-        //pizza type
-        $Pizzas=PizzaType::all();
-        return view('form')->with(['pizzas'=>$Pizzas]);
-      //pizza base
-       // $Pizzas=PizzaBaseSeeder::all();
-       // return view('form')->with(['pizzas'=>$Pizzas]);
+    
+        return view('form')
+        ->with(
+            [
+            'pizza'=>$pizza
+            ]
+        );
+
+     
     }
-
-
+    
+    
     public function displayThankYou()
     {
 
         return view('thankYou');
     }
     public function saveForm(Request $request){
-        $pizza = new Pizza();
-        $pizza->type=$request->get('type');
-        $pizza->base=$request->get('base');
+        $pizza = new \App\PizzaOrder();
         $pizza->name=$request->get('name');
+        $pizza->pizza_id=$request->get('pizza_id');
         $pizza->save();
         return view('thankYou');
     }

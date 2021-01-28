@@ -17,8 +17,6 @@
 @yield('content')
 
 
-<footer class="footer">
-    <p>&copy;A product of pizza hub 2021</p>
-</footer>
+
 </body>
 </html>

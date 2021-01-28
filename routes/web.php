@@ -19,13 +19,14 @@ Route::get('/', function () {
 //1st route
 Route::get('/pizzas','PizzaController@index' );
 //2nd route
-Route::get('/pizzas/form', 'PizzaController@form');
+Route::get('/pizzas/form/{pizza}', 'PizzaController@form')->name('order');
 
 Route::post('/pizzas/form', 'PizzaController@saveForm')->name('save-form');
 
+
 //3rd route
-Route::get('/pizzas/{id}', function($id){
-    return view('details',['id'=>$id]);
-});
+//Route::get('/pizzas/{id}', function($id){
+  //  return view('details',['id'=>$id]);
+//});
 Route::post('thankYou','PizzaController@displayThankYou')->name('thankYou');
 

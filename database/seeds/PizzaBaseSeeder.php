@@ -13,15 +13,15 @@ class PizzaBaseSeeder extends Seeder
     {
         //
         $p_base=new \App\PizzaBase();
-        $p_base->base='Cheesy crust';
+        $p_base->name='Cheesy crust';
         $p_base->save();
 
         $p_base=new \App\PizzaBase();
-        $p_base->base='Thin and crispy';
+        $p_base->name='Thin and crispy';
         $p_base->save();
 
         $p_base=new \App\PizzaBase();
-        $p_base->base='Hot';
+        $p_base->name='Hot';
         $p_base->save();
     }
 }

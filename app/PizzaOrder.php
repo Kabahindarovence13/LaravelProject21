@@ -4,9 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PizzaBase extends Model
+class PizzaOrder extends Model
 {
     //
-   
-
 }
